@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="2026 年 11 月種子教師會議議題：兒童新樂園競賽、新竹縣立總圖、企畫書溝通、ASTRA 應用，以及 Roblox × AI 課程研發。">
+  <title>種子教師會議議題｜11/1/2026</title>
+  <style>
+    :root {
+      --bg: #f7f6f1; --paper: #ffffff; --ink: #192822; --muted: #65736a; --line: #d8ded6;
+      --green: #285d49; --green-soft: #e8efea; --orange: #c65d3e; --orange-soft: #f8ebe5;
+      --mono: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+      --font: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, -apple-system, sans-serif;
+      --serif: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 104px; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font); line-height: 1.72; }
+    a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+    a:hover { color: var(--green); }
+    button { font: inherit; cursor: pointer; }
+    button:focus-visible, a:focus-visible, summary:focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; }
+    .reading-line { position: fixed; inset: 0 auto auto 0; height: 3px; background: var(--orange); width: 0; z-index: 100; }
+    .topbar { height: 76px; background: rgba(247,246,241,.97); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 50; }
+    .topbar-inner { max-width: 1440px; margin: auto; height: 100%; padding: 0 48px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .header-identity { display: flex; align-items: center; gap: 18px; min-width: 0; }
+    .header-date { font-family: var(--mono); color: var(--orange); font-size: 15px; font-weight: 800; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 800; letter-spacing: .03em; font-size: 15px; white-space: nowrap; }
+    .brand-mark { width: 29px; height: 29px; position: relative; border: 2px solid var(--ink); border-radius: 50%; display: inline-block; }
+    .brand-mark::before { content: ""; position: absolute; height: 2px; width: 16px; top: 12px; left: 5px; background: var(--orange); transform: rotate(-35deg); }
+    .top-caption { font-size: 12px; letter-spacing: .16em; font-family: var(--mono); color: var(--muted); }
+    .top-actions { display: flex; gap: 9px; }
+    .utility-btn { background: none; color: var(--ink); border: 1px solid #b8c4ba; border-radius: 0; font-size: 12px; font-weight: 700; padding: 10px 16px; transition: background .2s; }
+    .utility-btn:hover { background: var(--green-soft); }
+    .utility-btn.primary { color: #fff; background: var(--green); border-color: var(--green); }
+    .utility-btn.primary:hover { background: #194c38; }
+    .container { max-width: 1440px; margin: auto; padding: 0 48px; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--line); }
+    .stat { min-height: 155px; padding: 29px 30px 24px 0; border-right: 1px solid var(--line); display: flex; flex-direction: column; justify-content: space-between; }
+    .stat:not(:first-child) { padding-left: 30px; }
+    .stat:last-child { border-right: 0; }
+    .stat strong { font-size: clamp(35px, 4vw, 54px); line-height: 1; font-weight: 700; letter-spacing: -.06em; font-family: var(--mono); }
+    .stat strong small { font-family: var(--font); font-size: 19px; letter-spacing: normal; padding-left: 4px; }
+    .stat span { font-size: 13px; color: var(--muted); }
+    .stat em { font-size: 11px; color: var(--orange); font-style: normal; }
+    .body-grid { display: grid; grid-template-columns: 245px minmax(0,1fr); gap: 68px; padding-top: 38px; }
+    .left-rail { align-self: start; position: sticky; top: 103px; }
+    .rail-kicker, .overline { font: 600 11px var(--mono); text-transform: uppercase; letter-spacing: .14em; color: var(--green); }
+    .left-rail ul { padding: 0; margin: 22px 0 0; list-style: none; border-top: 1px solid var(--line); }
+    .left-rail li { border-bottom: 1px solid var(--line); }
+    .left-rail li a { padding: 12px 0; display: grid; grid-template-columns: 32px 1fr; gap: 8px; text-decoration: none; color: var(--muted); font-size: 13px; line-height: 1.55; transition: color .2s; }
+    .left-rail li a:hover, .left-rail li a.active { color: var(--green); font-weight: 750; }
+    .rail-num { font: 500 12px var(--mono); padding-top: 3px; }
+    .main { min-width: 0; }
+    .chapter { scroll-margin-top: 110px; padding: 4px 0 80px; margin-bottom: 74px; border-bottom: 1px solid var(--ink); }
+    .chapter:last-child { margin-bottom: 0; }
+    .chapter-label { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-bottom: 20px; }
+    .chapter-label .number { color: var(--orange); font: 600 12px var(--mono); letter-spacing: .08em; }
+    .chapter-label .type { color: var(--muted); font-size: 12px; }
+    h2 { font-size: clamp(38px, 4vw, 58px); letter-spacing: -.055em; line-height: 1.3; margin: 0 0 24px; }
+    h3 { font-size: 21px; line-height: 1.5; letter-spacing: -.025em; margin: 0 0 18px; }
+    h4 { font-size: 14px; margin: 0 0 12px; }
+    .intro { font-size: 19px; color: #44534b; line-height: 1.95; max-width: 920px; margin: 0 0 32px; }
+    .micro-caption { color: var(--muted); font-size: 14px; letter-spacing: .01em; line-height: 1.8; }
+    .tag { background: var(--green-soft); color: var(--green); font-size: 11px; font-weight: 700; padding: 6px 10px; white-space: nowrap; display: inline-block; }
+    .tag.warn { background: var(--orange-soft); color: #8c452f; }
+    .tag.neutral { background: #eaede8; color: #526057; }
+    .section-break { border-top: 1px solid var(--line); padding-top: 25px; margin-top: 30px; }
+    .metric-panel { background: var(--green); color: #fff; padding: 27px 34px 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin: 22px 0; }
+    .metric-panel .metric { border-right: 1px solid rgba(255,255,255,.25); }
+    .metric-panel .metric:last-child { border-right: none; }
+    .metric-panel .big { font: 600 clamp(43px, 5vw, 73px) var(--mono); letter-spacing: -.07em; line-height: 1.12; }
+    .metric-panel .unit { font-size: 14px; letter-spacing: 0; margin-left: 8px; }
+    .metric-panel p { color: #dce9e1; margin: 9px 0 0; font-size: 13px; }
+    .text-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; }
+    .plain-card { background: #fff; border: 1px solid #e2e7e0; padding: 23px 24px; min-width: 0; }
+    .plain-card p { font-size: 16px; color: #506057; margin: 0; line-height: 1.9; }
+    .plain-card .mini-number { font: 500 12px var(--mono); color: var(--orange); margin-bottom: 9px; }
+    .plain-card h3 { font-size: 20px; margin-bottom: 10px; }
+    .inline-link { color: var(--green); text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 4px; }
+    .inline-link:hover { color: var(--orange); }
+    .timeline { display: grid; gap: 0; margin-top: 19px; }
+    .timeline-row { display: grid; grid-template-columns: 112px 20px 1fr; gap: 15px; min-height: 85px; }
+    .date { font: 600 12px var(--mono); padding-top: 2px; color: var(--green); }
+    .track { position: relative; display: flex; flex-direction: column; align-items: center; }
+    .track::before { content: ""; position: absolute; top: 5px; width: 10px; height: 10px; border: 2px solid var(--orange); background: var(--bg); border-radius: 50%; z-index: 1; }
+    .track::after { content: ""; width: 1px; background: var(--line); flex: 1; }
+    .timeline-row:last-child .track::after { display: none; }
+    .timeline-copy { padding: 0 0 26px; }
+    .timeline-copy strong { display: block; font-size: 17px; margin-bottom: 4px; }
+    .timeline-copy p { margin: 0; font-size: 15px; color: var(--muted); }
+    .talking-points { margin: 16px 0 0; padding: 0; list-style: none; }
+    .talking-points li { padding: 13px 0; border-bottom: 1px solid var(--line); font-size: 14px; display: flex; align-items: flex-start; gap: 10px; }
+    .talking-points li::before { content: "→"; color: var(--orange); font-weight: 700; flex: none; }
+    .callout { border-left: 3px solid var(--orange); background: var(--orange-soft); padding: 19px 23px; margin-top: 22px; }
+    .callout strong { color: #7c3f2d; font-size: 16px; }
+    .callout p { color: #74594d; font-size: 16px; margin: 8px 0 0; line-height: 1.9; }
+    .course-board { border-top: 1px solid var(--line); margin: 24px 0; }
+    .course-row { display: grid; grid-template-columns: 115px 1fr; border-bottom: 1px solid var(--line); padding: 17px 0; gap: 16px; }
+    .course-row .label { color: var(--green); font: 600 12px var(--mono); padding-top: 2px; }
+    .course-row .value { font-size: 18px; font-weight: 700; }
+    .course-row .desc { display: block; color: var(--muted); font-size: 15px; font-weight: 400; line-height: 1.8; margin-top: 6px; }
+    .pills { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
+    .pill { display: inline-block; border: 1px solid #aab8ad; padding: 6px 11px; color: var(--green); font-size: 14px; font-weight: 600; text-decoration: none; }
+    .pill:hover { background: var(--green-soft); }
+    .desc a, .detail-inner a { color: var(--green); font-weight: 700; }
+    details { border: 1px solid var(--line); background: var(--paper); margin-top: 10px; }
+    summary { padding: 17px 20px; font-size: 17px; font-weight: 700; cursor: pointer; list-style-position: inside; }
+    details[open] summary { border-bottom: 1px solid var(--line); }
+    .detail-inner { padding: 18px 20px; }
+    .detail-inner p { margin: 0 0 12px; color: #495950; font-size: 16px; line-height: 1.85; }
+    .detail-inner p:last-child { margin-bottom: 0; }
+    .ordered { margin: 0; padding-left: 21px; }
+    .ordered li { font-size: 17px; margin: 0 0 15px; padding-left: 4px; line-height: 1.85; }
+    .ordered li:last-child { margin-bottom: 0; }
+    .source-link { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; padding: 16px 0; border-bottom: 1px solid var(--line); text-decoration: none; }
+    .source-link strong { font-size: 13px; display: block; }
+    .source-link span { font-size: 11px; color: var(--muted); overflow-wrap: anywhere; }
+    .source-link svg { flex: none; }
+    .decision-panel { background: var(--ink); padding: 35px 37px; color: #fff; }
+    .decision-panel h2 { color: #fff; margin: 0 0 10px; font-size: 36px; }
+    .decision-panel > p { margin: 0 0 23px; font-size: 16px; color: #c0d0c5; line-height: 1.8; }
+    .decision-item { border-top: 1px solid #466052; padding: 18px 0; display: grid; grid-template-columns: 32px 1fr; gap: 15px; }
+    .decision-item:last-child { padding-bottom: 0; }
+    .decision-item .idx { color: #c2cfb4; font: 500 13px var(--mono); }
+    .decision-item strong { display: block; font-size: 18px; margin-bottom: 6px; }
+    .decision-item p { font-size: 15px; color: #c0d0c5; margin: 0; line-height: 1.8; }
+    .toast { position: fixed; bottom: 26px; right: 26px; padding: 13px 18px; background: var(--ink); color: #fff; font-size: 13px; z-index: 200; box-shadow: 0 8px 24px #0002; opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity .2s, transform .2s; }
+    .toast.visible { opacity: 1; transform: translateY(0); }
+    @media (min-width: 981px) { .mobile-nav { display: none; } }
+    @media (max-width: 980px) {
+      .container, .topbar-inner { padding-left: 28px; padding-right: 28px; }
+      .header-identity { gap: 11px; }
+      .body-grid { grid-template-columns: 1fr; gap: 26px; padding-top: 0; }
+      .left-rail { display: none; }
+      .mobile-nav { display: flex; position: sticky; top: 76px; z-index: 40; overflow-x: auto; gap: 0; background: rgba(247,246,241,.97); border-bottom: 1px solid var(--line); margin: 0 -28px 32px; padding: 0 28px; scrollbar-width: none; }
+      .mobile-nav::-webkit-scrollbar { display: none; }
+      .mobile-nav a { text-decoration: none; white-space: nowrap; font-size: 12px; color: var(--muted); padding: 12px 13px; }
+      .mobile-nav a.active { color: var(--green); font-weight: 700; border-bottom: 2px solid var(--green); }
+      .chapter { padding-top: 10px; }
+    }
+    @media (max-width: 660px) {
+      html { scroll-padding-top: 129px; }
+      .topbar { height: 65px; }
+      .topbar-inner, .container { padding-left: 19px; padding-right: 19px; }
+      .top-caption { display: none; }
+      .header-identity { gap: 9px; }
+      .header-date { font-size: 12px; }
+      .brand { font-size: 12px; gap: 6px; white-space: normal; line-height: 1.35; }
+      .brand-mark { width: 20px; height: 20px; flex: none; }
+      .brand-mark::before { width: 10px; top: 8px; left: 3px; }
+      .utility-btn { font-size: 11px; padding: 8px 9px; }
+      .top-actions { gap: 6px; }
+      .stats { grid-template-columns: 1fr 1fr; }
+      .stat { min-height: 118px; padding: 18px 14px 16px 0; }
+      .stat:nth-child(even) { padding-left: 15px; border-right: 0; }
+      .stat:nth-child(odd) { padding-left: 0; }
+      .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .stat strong { font-size: 38px; }
+      .stat span { font-size: 11px; }
+      .mobile-nav { top: 65px; margin: 0 -19px 30px; padding: 0 19px; }
+      .chapter { margin-bottom: 51px; padding-bottom: 54px; scroll-margin-top: 133px; }
+      h2 { font-size: 34px; }
+      .metric-panel { padding: 23px 19px; }
+      .metric-panel .big { font-size: 39px; }
+      .metric-panel .unit { font-size: 12px; margin-left: 4px; }
+      .text-grid { grid-template-columns: 1fr; gap: 11px; }
+      .plain-card { padding: 19px; }
+      .course-row { grid-template-columns: 85px 1fr; gap: 10px; }
+      .timeline-row { grid-template-columns: 86px 15px 1fr; gap: 12px; }
+      .date { font-size: 11px; }
+      .decision-panel { padding: 26px 21px; }
+      .decision-panel h2 { font-size: 25px; }
+    }
+    @media print {
+      :root { --bg: #fff; --paper: #fff; }
+      html { scroll-behavior: auto; }
+      body { font-size: 10pt; }
+      .left-rail, .mobile-nav, .reading-line, .toast, .top-actions { display: none !important; }
+      .topbar { display: block !important; position: static; height: auto; background: #fff; border-bottom: 1px solid #777; margin-bottom: 18px; }
+      .topbar-inner { padding: 0 0 12px; }
+      .header-date { color: #222; }
+      .container { max-width: 100%; padding: 0; }
+      .stats { margin-bottom: 20px; }
+      .stat { min-height: 75px; padding-top: 12px; padding-bottom: 12px; }
+      .stat strong { font-size: 24pt; }
+      .body-grid { display: block; padding-top: 20px; }
+      .chapter { margin: 0 0 22px; padding: 0 0 25px; border-bottom: 1px solid #aaa; }
+      h2 { font-size: 20pt; }
+      .plain-card, .metric-panel, .decision-panel, .callout { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .plain-card, .course-row, .timeline-row, .decision-item, h2, h3 { break-inside: avoid; }
+      details .detail-inner { display: block !important; }
+      a { text-decoration: none; }
+      @page { size: A4; margin: 15mm; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+<div class="reading-line" id="readingLine" aria-hidden="true"></div>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="header-identity">
+      <span class="header-date">11/1/2026</span>
+      <a class="brand" href="#top" aria-label="返回頁首"><span class="brand-mark" aria-hidden="true"></span>種子教師會議議題</a>
+    </div>
+    <div class="top-actions">
+      <button type="button" class="utility-btn" id="copySummary">複製摘要</button>
+      <button type="button" class="utility-btn primary" id="printReport">列印／PDF</button>
+    </div>
+  </div>
+</header>
+<main id="top">
+  <div class="container">
+    <div class="body-grid">
+      <aside class="left-rail" aria-label="章節導覽">
+        <div class="rail-kicker">議題索引</div>
+        <nav><ul>
+          <li><a href="#topic-01"><span class="rail-num">01</span><span>臺北市兒童新樂園<br>數位設計競賽進度與成果</span></a></li>
+          <li><a href="#topic-02"><span class="rail-num">02</span><span>新竹縣立總圖<br>數位課程專案</span></a></li>
+          <li><a href="#topic-03"><span class="rail-num">03</span><span>習暢企業社<br>課程後續處理</span></a></li>
+          <li><a href="#topic-04"><span class="rail-num">04</span><span>ChatGPT ASTRA<br>功能展示</span></a></li>
+          <li><a href="#topic-05"><span class="rail-num">05</span><span>Roblox × AI<br>課程研發討論</span></a></li>
+          <li><a href="#decisions"><span class="rail-num">→</span><span>本次待確認事項</span></a></li>
+        </ul></nav>
+      </aside>
+      <article class="main">
+        <nav class="mobile-nav" aria-label="手機章節導覽">
+          <a href="#topic-01">01 臺北市兒童新樂園數位設計競賽進度與成果</a><a href="#topic-02">02 總圖</a><a href="#topic-03">03 課程後續處理</a><a href="#topic-04">04 ASTRA</a><a href="#topic-05">05 Roblox × AI</a><a href="#decisions">待確認</a>
+        </nav>
+        <section id="topic-01" class="chapter" aria-labelledby="topic01-title">
+          <div class="chapter-label"><span class="number">議題 01</span><span class="tag">競賽專案</span></div>
+          <h2 id="topic01-title">臺北市兒童新樂園<br>數位設計競賽進度與成果</h2>
+          
+          <div class="metric-panel" aria-label="競賽統計">
+            <div class="metric"><div class="big">581<span class="unit">件</span></div><p>創意作品</p></div>
+            <div class="metric"><div class="big">14<span class="unit">縣市</span></div><p>國中小學生參與</p></div>
+          </div>
+          <div class="section-break">
+            <h3>重要時程與工作項目</h3>
+            <div class="timeline">
+              <div class="timeline-row"><div class="date">11 / 04</div><div class="track"></div><div class="timeline-copy"><strong>初賽結算</strong></div></div>
+              <div class="timeline-row"><div class="date">11 / 20</div><div class="track"></div><div class="timeline-copy"><strong>決賽入圍方式</strong></div></div>
+              <div class="timeline-row"><div class="date">12 / 20（日）</div><div class="track"></div><div class="timeline-copy"><strong>頒獎記者會</strong><p>規劃市長頒獎、理事長三分鐘致詞，以及「市長建造，學生改造」活動主軸。</p></div></div>
+            </div>
+          </div>
+          <div class="section-break">
+            <h3>相關連結</h3>
+            <a class="source-link" href="https://drive.google.com/file/d/1q0TXJQBcuXLH5tsA5KXSWnnq_uHQhPGr/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div><strong>11/4 初賽結算與 11/20 決賽入圍方式</strong><span>Google Drive 文件</span></div><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            <a class="source-link" href="https://drive.google.com/file/d/1TZ0-qzEpRw3pBUiOv8Nq5eK8A7EGLlIx/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div><strong>頒獎記者會</strong><span>Google Drive 文件</span></div><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            <a class="source-link" href="https://www.gov.taipei/News_Content.aspx?n=F0DDAF49B89E9413&amp;sms=72544237BBE4C5F6&amp;s=285F890C408FF45C" target="_blank" rel="noopener noreferrer"><div><strong>成果報告新聞頁</strong><span>臺北市政府網站</span></div><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          </div>
+          
+        </section>
+        <section id="topic-02" class="chapter" aria-labelledby="topic02-title">
+          <div class="chapter-label"><span class="number">議題 02</span><span class="tag">政府合作專案</span></div>
+          <h2 id="topic02-title">新竹縣立總圖<br>數位課程計畫</h2>
+          
+          <div class="text-grid">
+            <div class="plain-card"><div class="mini-number">課程時數</div><h3>60 小時體驗課程</h3><p>2026/10/31 啟動，預計至 2027/01/02（六）結束；課程已額滿。</p></div>
+            <div class="plain-card"><div class="mini-number">設備使用</div><h3>10 台電競電腦</h3><p>Gaming&amp;AI 中心設備以課程使用為主，非一般讀者自由使用；一般民眾可使用電腦區查詢館藏。</p></div>
+          </div>
+          <div class="section-break">
+            <h3>課程與作品方向</h3>
+            <div class="course-board">
+              <div class="course-row"><span class="label">Minecraft</span><div class="value">竹縣文化探索<div class="pills"><a class="pill" href="https://event.hchcc.gov.tw/index.php?inter=reading_festival&amp;did=424" target="_blank" rel="noopener noreferrer">茶香竹縣</a><a class="pill" href="https://event.hchcc.gov.tw/index.php?inter=apply&amp;did=425" target="_blank" rel="noopener noreferrer">科技竹縣</a><a class="pill" href="https://event.hchcc.gov.tw/index.php?inter=reading_festival&amp;did=426" target="_blank" rel="noopener noreferrer">藝文竹縣</a></div></div></div>
+              <div class="course-row"><span class="label">Roblox／跑酷</span><div class="value">總圖書海大冒險<span class="desc">以跑酷玩法結合總圖探索。<a href="https://event.hchcc.gov.tw/index.php?inter=apply&amp;did=422" target="_blank" rel="noopener noreferrer">查看課程連結</a></span></div></div>
+              <div class="course-row"><span class="label">Roblox／射擊</span><div class="value">總圖知識守護戰<span class="desc">以射擊遊戲形式呈現知識探索主題。<a href="https://event.hchcc.gov.tw/index.php?inter=apply&amp;did=423" target="_blank" rel="noopener noreferrer">查看課程連結</a></span></div></div>
+            </div>
+          </div>
+          <div class="section-break">
+            <h3>宣傳新聞稿規劃 <span class="tag warn">尚待發布</span></h3>
+            <p class="micro-caption">兩份新聞稿預計於營運後發出；以下為規劃標題，不代表已公開發布。</p>
+            <details><summary>新聞稿 01｜Gaming&amp;AI 中心</summary><div class="detail-inner"><p>新竹縣立總圖打造Gaming&amp;AI 中心！Minecraft 結合 AI 與程式設計，開啟數位竹縣探索新體驗</p><p><a href="https://drive.google.com/file/d/1BEb15zk-2tZiK-sesmt2GHxrgQRPJVi1/view?usp=sharing" target="_blank" rel="noopener noreferrer">查看新聞稿連結</a></p></div></details>
+            <details><summary>新聞稿 02｜數位文化探索</summary><div class="detail-inner"><p>新竹縣立總圖書館打造數位文化探索新體驗！《總圖書海大冒險》帶領學生探索竹縣文化</p><p><a href="https://drive.google.com/file/d/16-ofpZaMu8RqNXJ4YVCy5MHpEeK2r_9Z/view?usp=sharing" target="_blank" rel="noopener noreferrer">查看新聞稿連結</a></p></div></details>
+          </div>
+<div class="callout"><strong>後續發展方向</strong><p>洽詢後續帶狀課程，並評估以總圖課程模式推廣至其他縣市文化局、觀光傳播相關單位及中央文化主管機關。此為文件提出的規劃方向，尚非確定合作案。</p></div>
+        </section>
+        <section id="topic-03" class="chapter" aria-labelledby="topic03-title">
+          <div class="chapter-label"><span class="number">議題 03</span><span class="tag warn">需後續處理</span></div>
+          <h2 id="topic03-title">習暢企業社<br>課程後續處理</h2>
+          <p class="intro">針對企畫書與既有教材／遊戲內容相似的疑慮，已完成相關聯絡並取得對方回覆；相關內容仍待主管單位進一步確認與處理。</p>
+          <div class="section-break">
+            <h3>目前溝通紀錄</h3>
+            <ol class="ordered">
+              <li>頂溪課後照顧林佩璇老師已知悉相關情況，並提供習暢企業社負責人的聯絡方式。</li>
+              <li>已向習暢企業社負責人反映其企畫書與「創世貓遊戲國」內容相似的疑慮；對方表示使用的是舊版企畫書，新版將更新。</li>
+              <li>請協會向課後社團相關主管反映，並確認涉及企畫書、教材來源及行政審查的後續處理方式。</li>
+            </ol>
+          </div>
+        </section>
+        <section id="topic-04" class="chapter" aria-labelledby="topic04-title">
+          <div class="chapter-label"><span class="number">議題 04</span><span class="tag neutral">功能展示</span></div>
+          <h2 id="topic04-title">ChatGPT ASTRA<br>課程應用展示</h2>
+          <div class="text-grid">
+            <div class="plain-card"><div class="mini-number">展示 01</div><h3>ScratchJr 創作示範</h3><p>使用「<a class="inline-link" href="https://youtu.be/Maggo0YoCtA" target="_blank" rel="noopener noreferrer">火影忍者</a>／<a class="inline-link" href="https://youtu.be/BuXCN-rEqn4" target="_blank" rel="noopener noreferrer">海賊王</a>」作為示範題材，說明 AI 與 ScratchJr 課程的可能結合方式。</p></div>
+            <div class="plain-card"><div class="mini-number">展示 02</div><h3><a class="inline-link" href="https://www.roblox.com/games/108491456126299/unnamed" target="_blank" rel="noopener noreferrer">照片到 Roblox 互動場景</a></h3><p>從建築照片建立 Blender 模型，再匯入 Roblox Studio 製作互動物件；可用於古蹟介紹或建築場景還原。</p></div>
+          </div>
+          <div class="section-break">
+            <h3>照片建模與互動應用流程</h3>
+            <div class="course-board">
+              <div class="course-row"><span class="label">步驟 01</span><div class="value">建築參考照片<span class="desc">作為場景外觀與建築造型的參考資料。</span></div></div>
+              <div class="course-row"><span class="label">步驟 02</span><div class="value">Blender 3D 模型<span class="desc">製作可後續調整的建築模型。</span></div></div>
+              <div class="course-row"><span class="label">步驟 03</span><div class="value">Roblox Studio<span class="desc">匯入模型，規劃導覽、探索或互動功能。</span></div></div>
+            </div>
+          </div>
+        </section>
+        <section id="topic-05" class="chapter" aria-labelledby="topic05-title">
+          <div class="chapter-label"><span class="number">議題 05</span><span class="tag neutral">可行性討論</span></div>
+          <h2 id="topic05-title">Roblox × AI<br>虛擬實驗課程研發</h2>
+          <div class="plain-card">
+            <div class="mini-number">課程研發</div>
+            <h3>遊戲設計 × AI 自主探索</h3>
+            <p>結合 Roblox 遊戲設計與 Luau 程式語言，探索 AI 在 3D 虛擬世界中的自主探索與學習機制，持續發展 Roblox × AI 創新課程，將國際研究趨勢轉化為有趣的程式設計與人工智慧教學題材。</p>
+          </div>
+          <div class="section-break">
+            <h3>參考資料</h3>
+            <a class="source-link" href="https://technews.tw/2026/10/24/researchers-stranded-an-ai-agent-on-a-virtual-island/" target="_blank" rel="noopener noreferrer"><div><strong>科技新報｜AI Agent 虛擬島嶼研究報導</strong><span>technews.tw / 2026-10-24</span></div><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            <a class="source-link" href="https://machineplaying.org/" target="_blank" rel="noopener noreferrer"><div><strong>Machine Playing｜研究網站</strong><span>machineplaying.org</span></div><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            <a class="source-link" href="https://clawblox.dev/#how" target="_blank" rel="noopener noreferrer"><div><strong>Clawblox｜AI 生成 Roblox 遊戲工具（獨立專案）</strong><span>clawblox.dev</span></div><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          </div>
+        </section>
+        <section id="decisions" class="chapter" aria-labelledby="decisions-title">
+          <div class="chapter-label"><span class="number">待確認事項</span><span class="tag warn">討論建議，非既定決議</span></div>
+          <div class="decision-panel">
+            <h2 id="decisions-title">本次待確認事項</h2>
+            <p>以下為建議討論項目，並非已通過的會議決議。</p>
+            <div class="decision-item"><span class="idx">01</span><div><strong>競賽初賽與入圍資訊</strong><p>確認 11/4 初賽結算程序、11/20 決賽入圍方式及對外公告安排。</p></div></div>
+            <div class="decision-item"><span class="idx">02</span><div><strong>12/20 頒獎記者會流程</strong><p>釐清市長頒獎、理事長三分鐘致詞及「市長建造，學生改造」的活動呈現方式。</p></div></div>
+            <div class="decision-item"><span class="idx">03</span><div><strong>新竹縣立總圖後續課程與新聞稿</strong><p>確認帶狀課程洽談進度、兩份新聞稿發布時機及跨縣市推廣策略。</p></div></div>
+            <div class="decision-item"><span class="idx">04</span><div><strong>企畫書疑慮的後續反映</strong><p>確認協會向課後社團相關主管反映的窗口及處理方式。</p></div></div>
+            <div class="decision-item"><span class="idx">05</span><div><strong>AI 教學展示與課程研發</strong><p>確認 ASTRA 示範內容，以及 Roblox × AI 虛擬實驗課程的技術驗證方向。</p></div></div>
+          </div>
+        </section>
+      </article>
+    </div>
+</div>
+</main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(function () {
+  'use strict';
+  const progress = document.getElementById('readingLine');
+  const navLinks = Array.from(document.querySelectorAll('a[href^="#topic-"], a[href="#decisions"]'));
+  const sections = Array.from(document.querySelectorAll('.chapter[id]'));
+  const toast = document.getElementById('toast');
+  let toastTimer;
+  function showToast(message) {
+    toast.textContent = message;
+    toast.classList.add('visible');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('visible'), 2600);
+  }
+  function updateProgress() {
+    const available = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.width = (available > 0 ? Math.min(100, (window.scrollY / available) * 100) : 0) + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress, { passive: true });
+  updateProgress();
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      const visible = entries.filter(entry => entry.isIntersecting).sort((a,b) => b.intersectionRatio - a.intersectionRatio);
+      if (visible.length) {
+        const target = '#' + visible[0].target.id;
+        navLinks.forEach(a => {
+          const active = a.getAttribute('href') === target;
+          a.classList.toggle('active', active);
+          if (active) a.setAttribute('aria-current', 'location');
+          else a.removeAttribute('aria-current');
+        });
+      }
+    }, { rootMargin: '-18% 0px -55% 0px', threshold: [0, 0.1, 0.3] });
+    sections.forEach(section => observer.observe(section));
+  }
+  document.getElementById('printReport').addEventListener('click', () => {
+    document.querySelectorAll('details').forEach(d => d.open = true);
+    window.print();
+  });
+  const brief = [
+    '2026 年 11 月種子教師會議｜議題摘要',
+    '1. 兒童新樂園競賽：581 件作品、14 縣市參賽；11/4 初賽結算、11/20 決賽入圍方式待確認；12/20 規劃頒獎記者會。',
+    '2. 新竹縣立總圖：60 小時體驗課程已額滿；2026/10/31 開始、2027/1/2 結束；規劃 Minecraft 竹縣文化與 Roblox 課程，兩份新聞稿待發布。',
+    '3. 習暢企業社：已反映企畫書內容相似疑慮；對方表示為舊版本、將更新。請協會確認後續反映與處理。',
+    '4. ChatGPT ASTRA：ScratchJr 題材展示；照片轉 Blender 模型、匯入 Roblox Studio 製作互動場景。',
+    '5. Roblox × AI：討論 Luau 與 AI 虛擬實驗環境的研究及課程開發可行性。',
+    '※ 以上依原始會議議題整理，非正式決議紀錄。'
+  ].join('\n');
+  document.getElementById('copySummary').addEventListener('click', async () => {
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(brief);
+      } else {
+        const temp = document.createElement('textarea');
+        temp.value = brief; temp.style.position = 'fixed'; temp.style.left = '-10000px';
+        document.body.appendChild(temp); temp.select();
+        if (!document.execCommand('copy')) throw new Error('Copy failed');
+        document.body.removeChild(temp);
+      }
+      showToast('摘要已複製，可貼到 LINE 或會議紀錄。');
+    } catch (_) { showToast('目前無法自動複製，請直接選取網頁文字。'); }
+  });
+})();
+</script>
+</body>
+</html>
